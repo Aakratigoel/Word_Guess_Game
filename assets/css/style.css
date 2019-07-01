@@ -1,0 +1,51 @@
+
+p{
+    font-weight: bold;
+    color:white;
+    font-size:19px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#img1
+{
+    z-index: -1;
+}
+.col31
+{
+    background-image: url('../images/word2.jpeg');
+    height: 400px;
+}
+#wordDiv
+{
+    position: relative;
+    left:20%;
+    top:30%;
+}
+.headingCol
+{
+    padding-top:20px;
+    padding-left:20px;
+}
+#sp1{
+    color:white;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 50px;
+    float: left;
+    background-color: blue;
+    border:1px solid crimson;
+    padding-left: 10px;
+    padding-right:10px;
+
+}
+footer{
+    position: relative;
+    bottom:-120px;
+    background-color:blue;
+    font-size:19px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:white;
+    height:100px;
+    text-align: center;
+    padding-top:25px;
+    padding-bottom:25px;
+}

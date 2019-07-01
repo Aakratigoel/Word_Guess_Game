@@ -8,7 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="./assets/css/style.css">
    </head>
   <body>
         <!-- Optional JavaScript -->
@@ -16,92 +16,48 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-     
-      <p>WINS<span id ="win1"></span></p>
-      <p>CURRENT WORD: <span id ="currentWord1"></span></p>
-      <p>NUMBER OF GUESSES REMAINING <span id ="nogr"></span></p>
-      <p>LETTERS ALREADY GUESSED : <span id ="lag"></span></p>
-      <p>LETTERS GUESSED CORRECTLY<span id ="lgc1"></span></p>
-      <!-- <script type="text/javascript">
-        var wins = document.getElementById("win1");
-        var nog = document.getElementById("nogr");
-        var lgc = document.getElementById("lgc1");
-        var cw = document.getElementById("currentWord1");
-        var lag1 =document.getElementById("lag");
-        var totalWins =0;
-        var numberOfGuesses = 12;
-        nog.textContent=numberOfGuesses;
-        var wordArray=["think","special","assume","thought"];
-        var computerGeneratedWord;
+      
+      <div class="container-fluid">
+        <div class="row" style="height:110px;background-color: crimson">
+           <div class = "col-lg-4">
 
-        computerGeneratedWord=wordArray[Math.floor(Math.random()*wordArray.length)];
+           </div>
+           <div class = "col-lg-8 headingCol">
+              <div id= "hd1"><span id = "sp1">H</span></div>
+              <div id= "hd1"><span id = "sp1">A</span></div>
+              <div id= "hd1"><span id = "sp1">N</span></div>
+              <div id= "hd1"><span id = "sp1">G</span></div>
+              <div id= "hd1"><span id = "sp1">M</span></div>
+              <div id= "hd1"><span id = "sp1">A</span></div>
+              <div id= "hd1"><span id = "sp1">N</span></div>
+            </div>
+        </div>
+       <div class="row" style="height:90px">
 
-        var letterGuessed= new Array();
-        var letterGuessedCorrectly= new Array();
-        var userInput;
-        var emptyAr = new Array();
-        var isFound= false;
-        var count =0;
-        //cw.textContent= computerGeneratedWord;
-        console.log(computerGeneratedWord);
-        var lengthOfGeneratedWord=computerGeneratedWord.length;
-        var dashedArray= new Array(lengthOfGeneratedWord);
-        for(var k =0;k<dashedArray.length;k++)
-        {
-          dashedArray[k]="_";
-        }
-        cw.textContent=dashedArray;
-
-        document.onkeyup=function(event)
-        {
-          if(numberOfGuesses === 0)
-          {
-            alert("Game is over , click okay to get a new word");
-            computerGeneratedWord=wordArray[Math.floor(Math.random()*wordArray.length)];
-            dashedArray.length=computerGeneratedWord.length;
-            for(var k =0;k<dashedArray.length;k++)
-        {
-          dashedArray[k]="_";
-        }
-            cw.textContent= dashedArray;
-            letterGuessed=[];
-            lag1.textContent=letterGuessed;
-            numberOfGuesses=12;
-            nog.textContent=numberOfGuesses;
-            return;
-          }
-          
-                        
-            userInput= event.key;
-           console.log(userInput);
-           
-            for(var i =0;i<lengthOfGeneratedWord;i++)
-            {
-              for(var j=0;j<letterGuessed.length;j++)
-                        {            
-                          if(userInput === letterGuessed[j])
-                            {
-                              return;
-                            }
-                        }
-                     
-                    if(userInput===computerGeneratedWord.charAt(i))
-                    {
-                        console.log("Entered the if");
-                        dashedArray[i]=userInput;
-                        cw.textContent=dashedArray;
-
-                    }                 
-            } 
-            
-             numberOfGuesses--;
-             nog.textContent=numberOfGuesses;
-             letterGuessed.push(userInput);   
-             lag1.textContent=letterGuessed;  
-        }
+       </div>
+                <div class="row">
+                  <div class = "col-lg-3">
+                  </div>
+                  <div class="col-lg-6 col31">
+                    <div id = "wordDiv">
+                        <p>WINS: <span id ="win1"></span></p>
+                        <p>CURRENT WORD: <span id ="currentWord1"></span></p>
+                        <p>NUMBER OF GUESSES REMAINING: <span id ="nogr"></span></p>
+                        <p>LETTERS ALREADY GUESSED : <span id ="lag"></span></p>
+                    </div>
+                    
+                    <!-- <img id ="img1" src = "./assets/images/word2.jpeg" width="700px" height="400px"> -->
+                  </div>
+                  <div class="col-lg-3">
+      
+                  </div>
+                </div>
+      
        
-      </script> -->
-
+      </div>
+      <footer>
+        copyright ©
+      </footer>
       <script type="text/javascript" src="./assets/javascript/game.js"></script> 
   </body>
 
