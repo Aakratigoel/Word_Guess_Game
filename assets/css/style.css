@@ -49,3 +49,15 @@ footer{
     padding-top:25px;
     padding-bottom:25px;
 }
+/* #sp1:hover
+{
+    transition: width 2s transform 2s;
+    transform:rotate(5deg);
+   
+} */
+#sp1:not(:hover)
+{
+    transition: width 2s transform 2s;
+    transform:rotate(5deg);
+   
+}
