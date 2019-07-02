@@ -9,7 +9,11 @@ p{
 {
     z-index: -1;
 }
-.col31
+body
+{
+    background-image: url("../images/finalWord.jpeg");
+}
+.col32
 {
     background-image: url('../images/word2.jpeg');
     height: 400px;
@@ -37,6 +41,18 @@ p{
     padding-right:10px;
 
 }
+#sp2
+{
+    color:white;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 50px;
+    float: left;
+    background-color: blue;
+    border:1px solid crimson;
+    padding-left: 10px;
+    padding-right:10px;
+}
 footer{
     position: relative;
     bottom:-120px;
@@ -55,9 +71,29 @@ footer{
     transform:rotate(5deg);
    
 } */
-#sp1:not(:hover)
+#sp1
 {
-    transition: width 2s transform 2s;
-    transform:rotate(5deg);
-   
+    animation: rotation1 .5s infinite;
 }
+#sp2
+{
+    animation: rotation2 .7s infinite;
+}
+ @keyframes rotation1 {
+    from {
+             transform: rotate(0deg);
+    }
+    to {
+            transform: rotate(15deg);
+    }
+ }
+ 
+ @keyframes rotation2 {
+    from {
+             transform: rotate(0deg);
+    }
+    to {
+            transform: rotate(-15deg);
+    }
+ }
+
