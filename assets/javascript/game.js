@@ -18,6 +18,7 @@ var userInput;
 var emptyAr = new Array();
 var isFound= false;
 var count =0;
+var str="" ;
 //cw.textContent= computerGeneratedWord;
 console.log(computerGeneratedWord);
 var lengthOfGeneratedWord=computerGeneratedWord.length;
@@ -30,8 +31,10 @@ cw.textContent=dashedArray;
 
 document.onkeyup=function(event)
 {
+
   if(numberOfGuesses === 0)
   {
+    str="";
     alert("Game is over , click okay to get a new word");
     computerGeneratedWord=wordArray[Math.floor(Math.random()*wordArray.length)];
     dashedArray.length=computerGeneratedWord.length;
@@ -63,10 +66,32 @@ document.onkeyup=function(event)
 
             if(userInput===computerGeneratedWord.charAt(i))
             {
+                str=str+userInput;
+                console.log(str);
+                if(str.length===computerGeneratedWord.length)
+                {
+                  
+                  totalWins++;
+                  wins.textContent=totalWins;
+                  computerGeneratedWord=wordArray[Math.floor(Math.random()*wordArray.length)];
+                  dashedArray.length=computerGeneratedWord.length;
+                  for(var k =0;k<dashedArray.length;k++)
+                  {
+                    dashedArray[k]="_";
+                  }
+                  cw.textContent= dashedArray;
+                  letterGuessed=[];
+                  lag1.textContent=letterGuessed;
+                  numberOfGuesses=12;
+                  nog.textContent=numberOfGuesses;
+                  alert("You won");
+                  str="";
+                  return;
+                }
                 console.log("Entered the if");
                 dashedArray[i]=userInput;
+                console.log(dashedArray[i]);
                 cw.textContent=dashedArray;
-
             }                 
     } 
 
