@@ -9,10 +9,6 @@ p{
 {
     z-index: -1;
 }
-body
-{
-    background-image: url("../images/finalWord.jpeg");
-}
 .col32
 {
     background-image: url('../images/word2.jpeg');
