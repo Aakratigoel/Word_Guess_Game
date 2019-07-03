@@ -3,6 +3,9 @@ var nog = document.getElementById("nogr");
 var lgc = document.getElementById("lgc1");
 var cw = document.getElementById("currentWord1");
 var lag1 =document.getElementById("lag");
+var aud=document.getElementById("myAudio");
+var aud1=document.getElementById("myAudio1");
+var aud2=document.getElementById("myAudio2");
 var totalWins =0;
 var numberOfGuesses = 12;
 console.log(numberOfGuesses);
@@ -31,9 +34,10 @@ cw.textContent=dashedArray;
 
 document.onkeyup=function(event)
 {
-
+  aud1.play();
   if(numberOfGuesses === 0)
   {
+    aud2.play();
     str="";
     alert("Game is over , click okay to get a new word");
     computerGeneratedWord=wordArray[Math.floor(Math.random()*wordArray.length)];
@@ -73,6 +77,7 @@ document.onkeyup=function(event)
                   
                   totalWins++;
                   wins.textContent=totalWins;
+                  aud.play();
                   computerGeneratedWord=wordArray[Math.floor(Math.random()*wordArray.length)];
                   dashedArray.length=computerGeneratedWord.length;
                   for(var k =0;k<dashedArray.length;k++)
