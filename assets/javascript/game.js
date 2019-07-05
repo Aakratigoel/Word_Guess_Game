@@ -1,107 +1,91 @@
-var wins = document.getElementById("win1");
-var nog = document.getElementById("nogr");
-var lgc = document.getElementById("lgc1");
-var cw = document.getElementById("currentWord1");
-var lag1 =document.getElementById("lag");
-var aud=document.getElementById("myAudio");
-var aud1=document.getElementById("myAudio1");
-var aud2=document.getElementById("myAudio2");
-var totalWins =0;
-var numberOfGuesses = 12;
-console.log(numberOfGuesses);
-nog.textContent=numberOfGuesses;
-var wordArray=["think","special","assume","thought"];
-var computerGeneratedWord;
 
-computerGeneratedWord=wordArray[Math.floor(Math.random()*wordArray.length)];
+var game ={
 
-var letterGuessed= new Array();
-var letterGuessedCorrectly= new Array();
-var userInput;
-var emptyAr = new Array();
-var isFound= false;
-var count =0;
-var str="" ;
-//cw.textContent= computerGeneratedWord;
-console.log(computerGeneratedWord);
-var lengthOfGeneratedWord=computerGeneratedWord.length;
-var dashedArray= new Array(lengthOfGeneratedWord);
-for(var k =0;k<dashedArray.length;k++)
-{
-  dashedArray[k]="_";
-}
-cw.textContent=dashedArray;
-
-document.onkeyup=function(event)
-{
-  aud1.play();
-  if(numberOfGuesses === 0)
-  {
-    aud2.play();
-    str="";
-    alert("Game is over , click okay to get a new word");
-    computerGeneratedWord=wordArray[Math.floor(Math.random()*wordArray.length)];
-    dashedArray.length=computerGeneratedWord.length;
-    for(var k =0;k<dashedArray.length;k++)
-{
-  dashedArray[k]="_";
-}
-    cw.textContent= dashedArray;
-    letterGuessed=[];
-    lag1.textContent=letterGuessed;
-    numberOfGuesses=12;
-    nog.textContent=numberOfGuesses;
-    return;
-  }
-
-
-    userInput= event.key;
-   console.log(userInput);
-
-    for(var i =0;i<lengthOfGeneratedWord;i++)
+  wordArray: ["think","special","assume","thought","ash","brazen","rural","excite","happy","hammer"],
+  wins : document.getElementById("win1"),
+  nog :document.getElementById("nogr"),
+  lgc : document.getElementById("lgc1"),
+   cw : document.getElementById("currentWord1"),
+   lag1 :document.getElementById("lag"),
+   aud:document.getElementById("myAudio"),
+   aud1:document.getElementById("myAudio1"),
+   aud2:document.getElementById("myAudio2"),
+   totalWins :0,
+   numberOfGuesses: 12,
+    computerGeneratedWord:"",
+    letterGuessed:[], 
+    userInput :"",
+    str:"",
+    lengthOfGeneratedWord:0,
+    dashedArray:[],
+  init :function initiailize()
     {
-      for(var j=0;j<letterGuessed.length;j++)
-                {            
-                  if(userInput === letterGuessed[j])
-                    {
-                      return;
-                    }
-                }
-
-            if(userInput===computerGeneratedWord.charAt(i))
-            {
-                str=str+userInput;
-                console.log(str);
-                if(str.length===computerGeneratedWord.length)
+      console.log(game.wordArray.length);
+        game.computerGeneratedWord=game.wordArray[Math.floor(Math.random()*game.wordArray.length)];
+        game.letterGuessed= [];
+        game.str="" ;
+        console.log(game.computerGeneratedWord);
+        game.lengthOfGeneratedWord=game.computerGeneratedWord.length;
+        game.dashedArray= new Array(game.lengthOfGeneratedWord);
+        for(var k =0;k<game.dashedArray.length;k++)
+        {
+            game.dashedArray[k]="_";
+        }
+        game.cw.textContent=game.dashedArray;
+        game.lag1.textContent=game.letterGuessed;
+        game.numberOfGuesses=12;
+        game.nog.textContent=game.numberOfGuesses;
+    } ,
+    keyUp: function keyUpFunc()
+    {
+      document.onkeyup=function(event)
+      {
+        game.aud1.play();
+        if(game.numberOfGuesses === 0)
+        {
+          game.aud2.play();
+          alert("Game is over , click okay to get a new word");
+          game.init();
+          return;
+        }
+        game.userInput= event.key;
+        console.log(game.userInput);
+        for(var i =0;i<game.lengthOfGeneratedWord;i++)
+          {
+            for(var j=0;j<game.letterGuessed.length;j++)
+            {            
+              if(game.userInput === game.letterGuessed[j])
                 {
-                  
-                  totalWins++;
-                  wins.textContent=totalWins;
-                  aud.play();
-                  computerGeneratedWord=wordArray[Math.floor(Math.random()*wordArray.length)];
-                  dashedArray.length=computerGeneratedWord.length;
-                  for(var k =0;k<dashedArray.length;k++)
-                  {
-                    dashedArray[k]="_";
-                  }
-                  cw.textContent= dashedArray;
-                  letterGuessed=[];
-                  lag1.textContent=letterGuessed;
-                  numberOfGuesses=12;
-                  nog.textContent=numberOfGuesses;
+                  return;
+                }
+          }
+      
+        if(game.userInput===game.computerGeneratedWord.charAt(i))
+          {
+                game.str=game.str+game.userInput;
+                console.log(game.str);
+                if(game.str.length===game.computerGeneratedWord.length)
+                {
+                  game.totalWins++;
+                  game.wins.textContent=game.totalWins;
+                  game.aud.play();
                   alert("You won");
-                  str="";
+                  game.init();
                   return;
                 }
                 console.log("Entered the if");
-                dashedArray[i]=userInput;
-                console.log(dashedArray[i]);
-                cw.textContent=dashedArray;
+                game.dashedArray[i]=game.userInput;
+                console.log(game.dashedArray[i]);
+                game.cw.textContent=game.dashedArray;
             }                 
-    } 
-
-     numberOfGuesses--;
-     nog.textContent=numberOfGuesses;
-     letterGuessed.push(userInput);   
-     lag1.textContent=letterGuessed;  
-}
+          } 
+      
+           game.numberOfGuesses--;
+           game.nog.textContent=game.numberOfGuesses;
+           game.letterGuessed.push(game.userInput);   
+           game.lag1.textContent=game.letterGuessed;  
+      }
+    }
+  };
+game.init();
+game.keyUp();

@@ -7,7 +7,8 @@ p{
 }
 #img1
 {
-    z-index: -1;
+    float:left;
+    
 }
 .col32
 {
@@ -93,3 +94,30 @@ footer{
     }
  }
 
+@media only screen and(max-width:375px)
+{
+    .headingCol
+    {
+        width:30%;
+        position: relative;
+        top:5px;
+        padding-left:10px;
+        
+    }
+    #hd1
+    {
+        width: 20px;
+    }
+    #sp1
+    {
+        font-size: 18px;
+    }
+    #sp2
+    {
+        font-size: 18px;
+    }
+    #row1
+    {
+        width:100%;
+    }
+}
